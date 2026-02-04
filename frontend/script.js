@@ -25,7 +25,7 @@
       expression = expression.replaceAll("%", "/100");
 
       try {
-        const res = await fetch("https://calculatorc-1.onrender.com/", {
+        const res = await fetch("https://calculatorc-1.onrender.com/calculate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ expression })
