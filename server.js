@@ -14,7 +14,7 @@ app.post("/calculate", (req, res) => {
     return res.status(400).json({ error: "expression is required" });
   }
 
-  const cpp = spawn("./calc.exe");
+  const cpp = spawn("./calc");
 
   let output = "";
   let errorOutput = "";
@@ -42,7 +42,7 @@ app.post("/calculate", (req, res) => {
   cpp.stdin.write(expression + "\n");
   cpp.stdin.end();
 });
-
-app.listen(3000, () => {
-  console.log("✅ Server running: http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("✅ Server running on port" + PORT);
 });
