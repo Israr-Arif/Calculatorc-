@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ✅ PAGE 1: Calculator -->
+  <div id="calcPage" class="page">
+    <div class="calc">
+      <input type="text" id="display" placeholder="Enter expression..." />
+
+      <div class="grid">
+        <!-- Scientific -->
+        <button class="sci" onclick="press('sin(')">sin</button>
+        <button class="sci" onclick="press('cos(')">cos</button>
+        <button class="sci" onclick="press('tan(')">tan</button>
+        <button class="sci" onclick="press('pi')">π</button>
+
+        <button class="sci" onclick="press('sqrt(')">√</button>
+        <button class="op" onclick="press('^')">^</button>
+        <button class="op" onclick="press('(')">(</button>
+        <button class="op" onclick="press(')')">)</button>
+
+        <!-- Numbers & operators -->
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button class="op" onclick="press('/')">/</button>
+
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button class="op" onclick="press('*')">*</button>
+
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button class="op" onclick="press('-')">-</button>
+
+        <button onclick="press('0')">0</button>
+        <button onclick="press('.')">.</button>
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button class="op" onclick="press('+')">+</button>
+
+        <button onclick="backspace()">⌫</button>
+        <button class="equal" onclick="calculate()">=</button>
+        <button class="op" onclick="press('%')">%</button>
+      </div>
+
+      <p style="margin-top:14px; font-size:13px; color:#666;">
+        ✅ Degree Mode ON (sin, cos, tan use degrees)
+      </p>
+    </div>
+  </div>
+
+  <!-- ✅ PAGE 2: Unit Converter -->
+  <div id="convPage" class="page hidden">
+    <div class="converterBox">
+      <h3 style="margin:0 0 10px 0;">📏 Unit Converter</h3>
+
+      <div class="convRow">
+        <input id="convValue" type="number" placeholder="Value">
+        <select id="convType">
+          <option value="cm_to_mm">cm → mm</option>
+          <option value="mm_to_cm">mm → cm</option>
+
+          <option value="m_to_cm">m → cm</option>
+          <option value="cm_to_m">cm → m</option>
+
+          <option value="km_to_m">km → m</option>
+          <option value="m_to_km">m → km</option>
+
+          <option value="inch_to_cm">inch → cm</option>
+          <option value="cm_to_inch">cm → inch</option>
+
+          <option value="ft_to_m">feet → meter</option>
+          <option value="m_to_ft">meter → feet</option>
+        </select>
+      </div>
+
+      <div class="convButtons">
+        <button onclick="convertUnit()" class="btnBlue">Convert</button>
+        <button onclick="clearConverter()" class="btnGray">Clear</button>
+      </div>
+
+      <p id="convResult" class="convResult"></p>
+    </div>
+  </div>
+
+  <!-- ✅ Bottom Tabs -->
+  <div class="bottomTabs">
+    <button class="tab active" onclick="showPage('calcPage')">🧮 Calculator</button>
+    <button class="tab" onclick="showPage('convPage')">📏 Converter</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
